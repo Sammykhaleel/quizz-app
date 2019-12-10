@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title class="results"> <h2>Results</h2></mat-card-title>
+  <mat-card-content
+    class="answer mat-app-background"
+    *ngFor="let a of answers.values"
+    [ngClass]="{ correct: a.correct }"
+  >
+    {{ a.value }}
+  </mat-card-content>
+  <mat-card-footer>
+    <a mat-raised-button color="primary" routerLink="/welcome">Quiz Menu</a>
+  </mat-card-footer>
+</mat-card>

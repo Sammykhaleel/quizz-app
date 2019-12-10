@@ -1,0 +1,26 @@
+<div *ngIf="quiz && !questions" class="spinner-grow text-primary"></div>
+<div class="quiz" *ngIf="questions">
+  <mat-card class="question-card" *ngIf="!showResults">
+    <app-question-form
+      [question]="questions[currentQuestionIndex]"
+      (onChoiceMade)="updateChoice($event)"
+    ></app-question-form>
+    <mat-card-footer>
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn btn-success"
+        (click)="nextOrViewResults()"
+        [disabled]="!answers.values[currentQuestionIndex]"
+      >
+        {{
+          currentQuestionIndex === questions.length - 1
+            ? "View results"
+            : "Next"
+        }}
+      </button>
+    </mat-card-footer>
+  </mat-card>
+
+  <app-results *ngIf="showResults" [answers]="answers"></app-results>
+</div>
