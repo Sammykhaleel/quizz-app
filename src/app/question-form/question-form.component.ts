@@ -11,7 +11,7 @@ export class QuestionFormComponent implements OnInit {
   @Input() question: Question;
   @Output() onChoiceMade = new EventEmitter<string>();
 
-   form: FormGroup;
+  form: FormGroup;
 
   constructor() {}
 
